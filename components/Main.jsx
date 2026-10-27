@@ -7,21 +7,25 @@ export default function Main() {
     <li key={ingredient}>{ingredient}</li>
   ));
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  /**
+   * Challenge: use form action instead of onSubmit to
+   * handle the data from the form
+   */
+
+  function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
-    if (!newIngredient) return;
+
+    if (typeof newIngredient !== "string" || !newIngredient.trim()) return;
+
     setIngredients((currentIngredients) => [
       ...currentIngredients,
-      newIngredient,
+      newIngredient.trim(),
     ]);
-    e.currentTarget.reset();
   }
 
   return (
     <main>
-      <form className="add-ingredient-form" onSubmit={handleSubmit}>
+      <form className="add-ingredient-form" action={handleSubmit}>
         <input
           type="text"
           placeholder="e.g oregano"
