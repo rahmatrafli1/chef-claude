@@ -33,13 +33,15 @@ export default function Main() {
           <ul className="ingredient-list" aria-live="polite">
             {ingredientsListItems}
           </ul>
-          <div className="get-recipe-container">
-            <div>
-              <h3>Ready for a recipe?</h3>
-              <p>Generate a recipe from your list of ingredients.</p>
+          {ingredients.length > 3 && (
+            <div className="get-recipe-container">
+              <div>
+                <h3>Ready for a recipe?</h3>
+                <p>Generate a recipe from your list of ingredients.</p>
+              </div>
+              <button>Get a recipe</button>
             </div>
-            <button>Get a recipe</button>
-          </div>
+          )}
         </section>
       )}
     </main>
