@@ -7,11 +7,6 @@ export default function Main() {
     <li key={ingredient}>{ingredient}</li>
   ));
 
-  /**
-   * Challenge: use form action instead of onSubmit to
-   * handle the data from the form
-   */
-
   function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
 
