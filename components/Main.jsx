@@ -10,11 +10,9 @@ export default function Main() {
   function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
 
-    if (typeof newIngredient !== "string" || !newIngredient.trim()) return;
-
     setIngredients((currentIngredients) => [
       ...currentIngredients,
-      newIngredient.trim(),
+      newIngredient,
     ]);
   }
 
