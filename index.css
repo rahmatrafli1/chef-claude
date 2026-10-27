@@ -12,22 +12,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
   height: 80px;
-  background-color: #fff;
+  background-color: white;
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
 }
 
-header img {
+header > img {
   width: 50px;
 }
 
-header h1 {
-  font-size: 2rem;
+header > h1 {
   font-weight: 400;
-  margin: 0;
 }
 
 main {
@@ -37,8 +35,8 @@ main {
 .add-ingredient-form {
   display: flex;
   justify-content: center;
-  height: 38px;
   gap: 12px;
+  height: 38px;
 }
 
 .add-ingredient-form > input {
