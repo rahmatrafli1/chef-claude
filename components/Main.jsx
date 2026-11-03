@@ -4,17 +4,17 @@ import ClaudeRecipe from "./ClaudeRecipe";
 import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "all the main spices",
-    "pasta",
-    "ground beef",
-    "tomato paste",
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
 
   async function getRecipe() {
-    const generatedRecipe = await getRecipeFromMistral(ingredients);
-    setRecipe(generatedRecipe);
+    try {
+      const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+      setRecipe(recipeMarkdown);
+    } catch (err) {
+      console.error(err);
+      setRecipe(`Gagal mengambil resep: ${err.message}`);
+    }
   }
 
   function addIngredient(formData) {
@@ -35,7 +35,7 @@ export default function Main() {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList ingredients={ingredients} onGetRecipe={getRecipe} />
+        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
 
       {recipe && <ClaudeRecipe recipe={recipe} />}
