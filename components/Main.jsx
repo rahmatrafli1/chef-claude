@@ -13,7 +13,7 @@ export default function Main() {
       setRecipe(recipeMarkdown);
     } catch (err) {
       console.error(err);
-      setRecipe(`Gagal mengambil resep: ${err.message}`);
+      setRecipe(`Failed to fetch the recipe: ${err.message}`);
     }
   }
 
