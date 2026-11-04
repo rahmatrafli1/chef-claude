@@ -8,7 +8,6 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       "process.env.ANTHROPIC_API_KEY": JSON.stringify(env.ANTHROPIC_API_KEY),
-      "process.env.HF_ACCESS_TOKEN": JSON.stringify(env.HF_ACCESS_TOKEN),
     },
   };
 });
